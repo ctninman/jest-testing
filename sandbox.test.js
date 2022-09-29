@@ -1,6 +1,12 @@
-const { expect } = require('expect')
 
+const { expect } = require('expect');
 const sum = require('./sandbox')
+
+
+beforeEach(() => {
+	count = 1;
+})
+
 
 test('should return the sum of a and b', () => {
 	expect(sum(2, 2)).toBe(4)
@@ -44,4 +50,35 @@ const returnsError = ()  => {
 
 test('should throw an error when invoked', () => {
 	expect(() => returnsError()).toThrow(Error);
+})
+
+
+// ASYNCHRONOUS
+test('should resolve to a value that says go broncos', () => {
+	return expect(Promise.resolve('go broncos!')).resolves.toBe('go broncos!')
+})
+
+test('should resolve to a value that says go mavs', async () => {
+	await expect(Promise.resolve('go mavs!')).resolves.toBe('go mavs!')
+})
+
+test('should reject to an error value', () => {
+	return expect(Promise.reject(new Error('cowboys'))).rejects.toThrow('cowboys')
+})
+
+// test('should return data from the fetch function', () => {
+// 	return fetchData().then(data => {
+// 		expect(data).toEqual({'firstName': 'Tony', 'lastName': 'kim'})
+// 	})
+// })
+
+
+// MOCk FUNCTIONS
+
+test('should return undefined by default', () => {
+	const mock = jest.fn()
+
+	const result = mock('booo cowboys')
+
+	expect(mock).toHaveBeenCalledWith('booo cowboys')
 })

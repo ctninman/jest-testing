@@ -62,6 +62,37 @@ WHAT IS JEST?
 		Built-in code coverage
 		Supports all types of mocking
 
+USING MATCHERS
+	Common matchers
+	Truthiness
+	.......
+
+TESTING ASYNC CODE
+	Promises, return a promise, Jest will wait until that promise resolves
+	Async/Await
+	Callbacks
+		Alternative if you don't use promises, but you should use promises
+	Resolves/Rejects
+
+SETUP AND TEARDOWN
+
+	Repeating Setup: Allows you to do some work repeatedly for many tests
+		beforeEach()
+		afterEach()
+
+	One-time Setup: Allows you to do some work ONE time
+		beforeAll()
+		afterAll()
+
+	Scoping: Group sets of tests using the describe block
+
+MOCK FUNCTIONS 
+
+	Allows you to:
+		Test the links between code by erasing the "actual" implementation of your code
+		Captures calls and parameters passed to the function
+
+	Important concepts
 
 
 
